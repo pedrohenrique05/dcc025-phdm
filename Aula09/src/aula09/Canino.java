@@ -8,6 +8,7 @@ package aula09;
 /**
  *
  * @author pedro
+ * @see filho de Animal
  */
 public class Canino extends Animal {
     
