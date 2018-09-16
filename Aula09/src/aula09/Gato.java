@@ -9,6 +9,15 @@ package aula09;
  *
  * @author pedro
  */
-public class Gato {
+public class Gato extends Felino {
+    
+    @Override
+    /**
+     * @see metodo da classe pai Animal
+     */
+    public void emiteSom(){
+        super.emiteSom();
+        System.out.println("Estou miando");
+    }
     
 }
