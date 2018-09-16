@@ -27,7 +27,11 @@ public class Aula09 {
         
         cachorro.come();
         cachorro.setNome("Fred");
+        cachorro.setIdade(5);
+        cachorro.setRaca("Vira lata");
         cachorro.getNome();
+        cachorro.getIdade();
+        cachorro.getRaca();
         cachorro.emiteSom();
         
     }
