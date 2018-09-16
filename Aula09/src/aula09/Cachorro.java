@@ -9,17 +9,18 @@ import java.util.Scanner;
  *
  * @author pedro
  */
-public class Cachorro extends Animal {
+public class Cachorro extends Canino {
     
 
     
     @Override
     /**
-     * 
+     * @see metodo da classe pai Animal
      */
     public void emiteSom(){
         super.emiteSom();
         System.out.println("Cachorro late!");
     }
+    
     
 }
