@@ -28,15 +28,15 @@ public class Animal {
     }
     
     public void getIdade(){
-        System.out.println(this.idade);
+        System.out.println("Idade: " + this.idade + " anos");
     }
     
     public void getRaca(){
-        System.out.println(this.raca);
+        System.out.println("Raça: " + this.raca);
     }
     
     public void getNome(){
-        System.out.println(this.nome);
+        System.out.println("Nome: " + this.nome);
     }
     
     public void come(){
@@ -49,6 +49,6 @@ public class Animal {
     
     public void emiteSom(){
         
-        System.out.println("Estou emitindo som");
+        System.out.println("Estou emitindo um som");
     }
 }
