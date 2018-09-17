@@ -21,18 +21,39 @@ public class Aula09 {
         animal.come();
         animal.dorme();
         animal.emiteSom();
+        System.out.println();
         
         System.out.println("cachorro a baixo");
         Cachorro cachorro = new Cachorro();
         
-        cachorro.come();
+        
         cachorro.setNome("Fred");
         cachorro.setIdade(5);
         cachorro.setRaca("Vira lata");
+        cachorro.setEspecie("Canis Lupus");
         cachorro.getNome();
         cachorro.getIdade();
         cachorro.getRaca();
+        cachorro.getEspecie();
         cachorro.emiteSom();
+        cachorro.come();
+        cachorro.dorme();
+        
+        System.out.println();
+        System.out.println("Gato a baixo");
+        Gato gato = new Gato();
+        
+        gato.setNome("Tom");
+        gato.setIdade(9);
+        gato.setRaca("Vira lata");
+        gato.setEspecie("Felis silvestris catus");
+        gato.getEspecie();
+        gato.getIdade();
+        gato.getNome();
+        gato.getRaca();
+        gato.emiteSom();
+        gato.come();
+        gato.dorme();
         
     }
     
