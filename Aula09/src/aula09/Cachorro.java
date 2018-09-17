@@ -19,7 +19,7 @@ public class Cachorro extends Canino {
      */
     public void emiteSom(){
         super.emiteSom();
-        System.out.println("Cachorro late!");
+        System.out.println("Estou latindo!");
     }
     
     
