@@ -12,4 +12,25 @@ package aula09;
  */
 public class Canino extends Animal {
     
+    private String subEspecie;
+    
+    @Override
+    /**
+     * @see chamando o metodo setEspecie da classe pai Animal
+     */
+    public void setEspecie(String subEspecie){
+        this.subEspecie = subEspecie;
+        super.setEspecie("canideos");
+        
+    }
+    
+    @Override
+        /**
+     * @see chamando o metodo getEspecie da classe pai Animal
+     */
+    public void getEspecie(){
+        super.getEspecie();
+        System.out.println("SubEspecie: " + this.subEspecie);
+    }
+    
 }
