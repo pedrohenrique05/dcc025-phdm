@@ -15,6 +15,7 @@ public class Animal {
     private int idade;
     private String raca;
     private String nome;
+    private String especie;
     
     public void setIdade(int idade){
         this.idade = idade;
@@ -26,7 +27,12 @@ public class Animal {
     public void setNome(String nome){
         this.nome = nome;
     }
-    
+    public void setEspecie(String especie){
+        this.especie = especie;
+    }
+    public void getEspecie(){
+        System.out.println("Especie: " + this.especie + " ");
+    }
     public void getIdade(){
         System.out.println("Idade: " + this.idade + " anos");
     }
