@@ -5,6 +5,7 @@
  */
 package aula11;
 import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author pedro
@@ -29,9 +30,17 @@ public class Aula11 {
             animal.get(i).comer("Ração");
             animal.get(i).comer("Osso", i);
         }
+        List <Animal> an = new ArrayList();
+        an.add(new Cachorro());
+        an.add(new Gato());
         
-        CachorroRobo robo = new CachorroRobo();
-        robo.limpaPoeira();
+        Animal robo = new CachorroRobo();
+        ((CachorroRobo)robo).limpaPoeira();
+         for(int i = 0 ; i < an.size() ; i++){
+            //
+        }
+        CachorroRobo roboo = new CachorroRobo();
+        roboo.limpaPoeira();
     }
     
 }
