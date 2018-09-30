@@ -9,6 +9,9 @@ package pokemon.trabalho;
  *
  * @author pedro
  */
-public class Pokemon {
+public class Pokemon extends Pokedex{
     
+    private String nomePokemon, sexoPokemon, habilidade, fraqueza, descricao;
+    private int altura, peso, numId, numIdEvolucao = 0;
+    private boolean evolucao = false;
 }
