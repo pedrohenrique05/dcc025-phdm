@@ -9,6 +9,6 @@ package pokemon.trabalho;
  *
  * @author pedro
  */
-public class Pokedex {
+public class Pokedex extends Jogador {
     private static int numPokemons = 0, ginasio = 0;
 }
