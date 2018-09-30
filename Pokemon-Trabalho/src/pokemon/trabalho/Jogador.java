@@ -9,6 +9,8 @@ package pokemon.trabalho;
  *
  * @author pedro
  */
-public class Jogador {
-    
+public class Jogador{
+
+private String nomeJogador, sexoJogador, insignia;
+private int idade, pokebola;
 }
