@@ -40,4 +40,9 @@ public abstract class Pokedex extends Jogador {
     public int getNumGinasio(){
         return this.numGinasio;
     }
+    /**
+     * atualiza o numero de pokemon
+     */
+    public abstract void excluiPokemon();
+    public abstract void excluiGinasio();
 }
