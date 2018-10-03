@@ -9,9 +9,16 @@ package pokemon.trabalho;
  *
  * @author pedro
  */
-public class Ginasio extends Pokedex{
+public abstract class Ginasio extends Pokedex{
     private String nomeGinasio, MestreGinasio;
     private String [] pokemons = new String[10];
     
+    /**
+     *exclui ginasio
+     */
+    @Override
+    public void excluiGinasio(){
+        
+    }
     
 }
