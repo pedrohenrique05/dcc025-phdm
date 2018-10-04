@@ -16,11 +16,45 @@ public class Pokedex extends Jogador {
     private static  int numGinasio = 0;
     
     //Pokemon pok = new Pokemon();
-    ArrayList <Pokemon> arrayPokemon = new ArrayList();
+    private static ArrayList <Pokemon> arrayPokemon = new ArrayList();
     
+    /**
+     * criando o metodo setPokemon, que usará os metodos set's da classe filha
+     * 'Pokemon'
+     * @param pokk
+     */
     
+    public void setObjetoPokemon(Pokemon pokk){
+        Pokedex.numPokemons++;
+        Pokedex.arrayPokemon.add(pokk);
+        
+    }
+    
+    public void getObjetoPokemon(){
+        String pokemon;
+        
+        for(int aux = 0 ; aux< Pokedex.arrayPokemon.size(); aux++){
+            //Pokemon auxPokk = this.arrayPokemon.get(aux);
+            //System.out.println("Tamanho do arrayList: "+Pokedex.arrayPokemon.size()+"Posição: "+aux);
+            pokemon = "Nome do pokemon: " +Pokedex.arrayPokemon.get(aux).getNomePokemon()+ 
+                    ". Sexo: "+Pokedex.arrayPokemon.get(aux).getSexoPokemon()+
+                    ". Habilidade: "+Pokedex.arrayPokemon.get(aux).getHabilidade()+". Fraqueza: "+
+                    Pokedex.arrayPokemon.get(aux).getFraqueza()+". Descrição: "+
+                    Pokedex.arrayPokemon.get(aux).getDescricao()+
+                    ".\n Altura: "+Pokedex.arrayPokemon.get(aux).getAltura()+". Peso: "+
+                    Pokedex.arrayPokemon.get(aux).getAltura()+
+                    ". Seu id: "+Pokedex.arrayPokemon.get(aux).getIdNumPokemon()+". Id do seu pokemon de origem: "+
+                    Pokedex.arrayPokemon.get(aux).getNumIdEvolucao();
+            System.out.println(pokemon);
+            
+            
+        }
+        
+    }
     public void setPokemon(){
-        String auxString;
+        setNumPokemon();
+        
+        /*String auxString;
         int auxNum;
         boolean auxBool;
         //Set nome pokemon
@@ -71,22 +105,24 @@ public class Pokedex extends Jogador {
             Scanner idPok = new Scanner(System.in);
             auxNum = idPok.nextInt();
             arrayPokemon.get(numPokemons).setNumIdEvolucao(auxNum);
-        }
-        //arrayPokemon.remove(numId);
+        }*/
+        
+        
+        
     }
     /**
      * adicionando o numero de pokemons na pokedex.
      */
     public void setNumPokemon(){
         
-        this.numPokemons++;
+        Pokedex.numPokemons++;
     }
     
     /**
      * adicionando o numero de ginasio que está na pokedex.
      */
     public void setNumGinasio(){
-        this.numGinasio++;
+        Pokedex.numGinasio++;
     }
     /**
      * 
@@ -106,7 +142,7 @@ public class Pokedex extends Jogador {
      * atualiza o numero de pokemon
      */
     public void excluiPokemon(int numId){
-        //...
+        arrayPokemon.remove(numId);
     }
     public void excluiGinasio(){
         //...
