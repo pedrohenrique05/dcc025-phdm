@@ -17,7 +17,8 @@ public class Pokedex extends Jogador {
     
     //Pokemon pok = new Pokemon();
     private static ArrayList <Pokemon> arrayPokemon = new ArrayList();
-    
+
+
     /**
      * criando o metodo setPokemon, que usará os metodos set's da classe filha
      * 'Pokemon'
@@ -43,7 +44,7 @@ public class Pokedex extends Jogador {
                     Pokedex.arrayPokemon.get(aux).getDescricao()+
                     ".\n Altura: "+Pokedex.arrayPokemon.get(aux).getAltura()+". Peso: "+
                     Pokedex.arrayPokemon.get(aux).getAltura()+
-                    ". Seu id: "+Pokedex.arrayPokemon.get(aux).getIdNumPokemon()+". Id do seu pokemon de origem: "+
+                    ". Seu id: "+Pokedex.arrayPokemon.get(aux).getNumIdPokemon()+". Id do seu pokemon de origem: "+
                     Pokedex.arrayPokemon.get(aux).getNumIdEvolucao();
             System.out.println(pokemon);
             
@@ -51,8 +52,8 @@ public class Pokedex extends Jogador {
         }
         
     }
-    public void setPokemon(){
-        setNumPokemon();
+    //public void setPokemon(){
+      //  setNumPokemon();
         
         /*String auxString;
         int auxNum;
@@ -109,7 +110,7 @@ public class Pokedex extends Jogador {
         
         
         
-    }
+    //}
     /**
      * adicionando o numero de pokemons na pokedex.
      */
@@ -129,7 +130,7 @@ public class Pokedex extends Jogador {
      * @return o numero de pokemons que possui na pokedex.
      */
     public int getNumPokemon(){
-        return this.numPokemons;
+        return Pokedex.numPokemons;
     }
     /**
      * 
