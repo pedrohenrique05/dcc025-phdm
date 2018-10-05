@@ -27,6 +27,7 @@ public class PokemonTrabalho {
                     + " ; 2 - para listar BD da pokedex");
             Scanner auxMenu = new Scanner(System.in);
             menu = auxMenu.nextInt();
+            
             switch(menu){
                 case 0:
                     System.out.println("Finalizando o sistema!");
@@ -86,6 +87,7 @@ public class PokemonTrabalho {
                         pokk.setNumIdEvolucao(auxNum);
                     }
                     pokPrincipal.setObjetoPokemon(pokk);
+                    
                     break;
                 case 2:
                     pokPrincipal.getObjetoPokemon();
