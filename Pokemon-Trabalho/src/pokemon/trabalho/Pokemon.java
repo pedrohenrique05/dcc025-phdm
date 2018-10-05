@@ -9,10 +9,10 @@ package pokemon.trabalho;
  *
  * @author pedro
  */
-public  class Pokemon extends Pokedex{
+public class Pokemon extends Pokedex{
     
     private String nomePokemon, sexoPokemon, habilidade, fraqueza, descricao;
-    private int altura, peso, numIdEvolucao = 0, evolucao = 0;
+    private int altura, peso, numIdEvolucao = 0, evolucao = 0, auxNumId = 0;
     private static int numId = 0;
     
     
@@ -74,9 +74,11 @@ public  class Pokemon extends Pokedex{
     }
     /**
      * setando o id de identificação do pokemon
+     * @param numId
      */
     public void setNumId(){
         Pokemon.numId++;
+        this.auxNumId = Pokemon.numId;
     }
     /**
      * setando o id do pokemon que esse pokemon evoluiu. 
@@ -129,13 +131,16 @@ public  class Pokemon extends Pokedex{
         return this.peso;
     }
     
-    public int getIdNumPokemon(){
-        return Pokemon.numId;
+    public int getNumIdPokemon(){
+        return this.auxNumId;
+        
     }
     
     public int getNumIdEvolucao(){
-        return this.getIdNumPokemon();
+        return this.numIdEvolucao;
     }
+
+
     /**
      * exclui pokemon
      */
