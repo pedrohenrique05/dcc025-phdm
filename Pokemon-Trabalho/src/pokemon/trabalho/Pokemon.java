@@ -12,8 +12,8 @@ package pokemon.trabalho;
 public class Pokemon extends Pokedex{
     
     private String nomePokemon, sexoPokemon, habilidade, fraqueza, descricao;
-    private int altura, peso, numIdEvolucao = 0, evolucao = 0, auxNumId = 0;
-    private static int numId = 0;
+    private int altura, peso, numIdEvolucao = -1, evolucao = 0/*, auxNumId = -1*/;
+    //private static int numId = -1;
     
     
     /**
@@ -76,16 +76,24 @@ public class Pokemon extends Pokedex{
      * setando o id de identificação do pokemon
      * @param numId
      */
-    public void setNumId(){
+    /*public void setNumId(){
         Pokemon.numId++;
         this.auxNumId = Pokemon.numId;
-    }
+    }*/
     /**
      * setando o id do pokemon que esse pokemon evoluiu. 
      * @param numIdEvolucao 
      */
     public void setNumIdEvolucao(int numIdEvolucao){
-        this.numIdEvolucao = numIdEvolucao;
+            if(numIdEvolucao > getNumPokemon() || numIdEvolucao < 0){
+                System.out.println("Id não válido!");
+            }else{
+                System.out.println("Numero de pokemons: "+getNumPokemon());
+                this.numIdEvolucao = numIdEvolucao;
+                //analisar se vale a pena pedir para o usuário digitar o id de novo
+                //e passar esse novo id como referencia a essa função ou se realmente
+                //encerra sem pedir para corrigir
+            }
     }
     /**
      * classe com objetivo de verificar se o pokemon que será setado, é uma
@@ -131,16 +139,16 @@ public class Pokemon extends Pokedex{
         return this.peso;
     }
     
-    public int getNumIdPokemon(){
+    /*public int getNumIdPokemon(){
         return this.auxNumId;
         
-    }
+    }*/
     
     public int getNumIdEvolucao(){
         return this.numIdEvolucao;
     }
 
-
+    
     /**
      * exclui pokemon
      */
