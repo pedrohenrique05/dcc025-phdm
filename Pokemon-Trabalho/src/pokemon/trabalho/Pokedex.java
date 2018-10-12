@@ -33,22 +33,27 @@ public class Pokedex extends Jogador {
     
     public void getObjetoPokemon(){
         String pokemon;
+        if(Pokedex.arrayPokemon.isEmpty()){
+            System.out.println("Não há nenhum pokemon registrado na pokedex!");
+        }else{
+            
+            for(int aux = 0 ; aux< Pokedex.arrayPokemon.size(); aux++){
+                //Pokemon auxPokk = this.arrayPokemon.get(aux);
+                //System.out.println("Tamanho do arrayList: "+Pokedex.arrayPokemon.size()+"Posição: "+aux);
+                pokemon = "| Nome do pokemon: " +Pokedex.arrayPokemon.get(aux).getNomePokemon()+ 
+                        "\n| Sexo: "+Pokedex.arrayPokemon.get(aux).getSexoPokemon()+
+                        "\n| Habilidade: "+Pokedex.arrayPokemon.get(aux).getHabilidade()+"\n| Fraqueza: "+
+                        Pokedex.arrayPokemon.get(aux).getFraqueza()+"\n| Descrição: "+
+                        Pokedex.arrayPokemon.get(aux).getDescricao()+
+                        ".\n| Altura: "+Pokedex.arrayPokemon.get(aux).getAltura()+"\n| Peso: "+
+                        Pokedex.arrayPokemon.get(aux).getAltura()+
+                        "\n| Seu id: "+/*Pokedex.arrayPokemon.get(aux).getNumIdPokemon()+*/aux+"\n| Id do seu pokemon de origem: "+
+                        Pokedex.arrayPokemon.get(aux).getNumIdEvolucao();
+                System.out.println(pokemon+"\n ---------- ");
+
+
+            }
         
-        for(int aux = 0 ; aux< Pokedex.arrayPokemon.size(); aux++){
-            //Pokemon auxPokk = this.arrayPokemon.get(aux);
-            //System.out.println("Tamanho do arrayList: "+Pokedex.arrayPokemon.size()+"Posição: "+aux);
-            pokemon = "Nome do pokemon: " +Pokedex.arrayPokemon.get(aux).getNomePokemon()+ 
-                    ". Sexo: "+Pokedex.arrayPokemon.get(aux).getSexoPokemon()+
-                    ". Habilidade: "+Pokedex.arrayPokemon.get(aux).getHabilidade()+". Fraqueza: "+
-                    Pokedex.arrayPokemon.get(aux).getFraqueza()+". Descrição: "+
-                    Pokedex.arrayPokemon.get(aux).getDescricao()+
-                    ".\n Altura: "+Pokedex.arrayPokemon.get(aux).getAltura()+". Peso: "+
-                    Pokedex.arrayPokemon.get(aux).getAltura()+
-                    ". Seu id: "+Pokedex.arrayPokemon.get(aux).getNumIdPokemon()+". Id do seu pokemon de origem: "+
-                    Pokedex.arrayPokemon.get(aux).getNumIdEvolucao();
-            System.out.println(pokemon);
-            
-            
         }
         
     }
@@ -114,10 +119,10 @@ public class Pokedex extends Jogador {
     /**
      * adicionando o numero de pokemons na pokedex.
      */
-    public void setNumPokemon(){
+    /*public void setNumPokemon(){
         
         Pokedex.numPokemons++;
-    }
+    }*/
     
     /**
      * adicionando o numero de ginasio que está na pokedex.
@@ -132,18 +137,28 @@ public class Pokedex extends Jogador {
     public int getNumPokemon(){
         return Pokedex.numPokemons;
     }
+    
     /**
      * 
      * @return o numero de ginasio que possui na pokedex.
      */
     public int getNumGinasio(){
-        return this.numGinasio;
+        return Pokedex.numGinasio;
     }
     /**
      * atualiza o numero de pokemon
+     * @param numId
      */
     public void excluiPokemon(int numId){
+        try{
         arrayPokemon.remove(numId);
+        System.out.println("Pokemon deletado com sucesso!");
+        Pokedex.numPokemons--;
+        }catch(Exception e){
+                if(numId+1 > arrayPokemon.size() || numId < 0){
+                    System.out.println("Pokemon não encontrado!");
+                }
+                }
     }
     public void excluiGinasio(){
         //...
