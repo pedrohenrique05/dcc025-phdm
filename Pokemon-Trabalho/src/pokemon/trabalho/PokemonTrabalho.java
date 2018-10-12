@@ -13,7 +13,20 @@ import java.util.Scanner;
  * @author pedro
  */
 public class PokemonTrabalho {
-
+    public static int erro(String valor){
+        int valorInt;
+        try{
+            
+            valorInt  = Integer.parseInt(valor);
+            
+            
+        }catch(NumberFormatException e){
+           System.out.println("Comando inválido");;
+           Scanner teste = new Scanner(System.in); 
+           valorInt = erro(teste.next());
+        }
+        return valorInt;
+    }
     /**
      * @param args the command line arguments
      */
@@ -23,10 +36,23 @@ public class PokemonTrabalho {
         Pokemon pokPrincipal = new Pokemon();
         int menu;
         do{
-            System.out.println("0 - para sair ; 1 - para adicionar um novo pokemon"
-                    + " ; 2 - para listar BD da pokedex");
+            //System.out.println("0 - para sair ; 1 - para adicionar um novo pokemon"
+                    //+ " ; 2 - para listar BD da pokedex\n3 - para deletar pokemon");
+                        System.out.println("\n### Sistema de informações de pokemons! - Pokedex ###");
+			System.out.println("                  =============================");
+			System.out.println("                  |   1 - Adicionar pokemon   |");
+			System.out.println("                  |   2 - Listar BD pokemons  |");
+			System.out.println("                  |   3 - Deletar pokemon     |");
+			System.out.println("                  |   4 - *                   |");
+			System.out.println("                  |   5 - *                   |");
+			System.out.println("                  |   6 - *                   |");
+			System.out.println("                  |   0 - Sair                |");
+			System.out.println("                  =============================\n");
+			//System.out.print("\n");
+        
             Scanner auxMenu = new Scanner(System.in);
-            menu = auxMenu.nextInt();
+            menu = erro(auxMenu.next());
+            //menu = auxMenu.nextInt();
             
             switch(menu){
                 case 0:
@@ -36,61 +62,77 @@ public class PokemonTrabalho {
                     Pokemon pokk = new Pokemon();
                     String auxString;
                     int auxNum;
-                    boolean auxBool;
+                    //boolean auxBool;
                     //Set nome pokemon
                     System.out.println("Digite o nome do pokemon");
                     Scanner nomePok = new Scanner(System.in);
-                    auxString = nomePok.next();
+                    auxString = nomePok.nextLine();
                     pokk.setNomePokemon(auxString);
                     //set sexo pokemon
                     System.out.println("Digite o sexo do pokemon");
                     Scanner sexoPok = new Scanner(System.in);
-                    auxString = sexoPok.next();
+                    auxString = sexoPok.nextLine();
                     pokk.setSexoPokemon(auxString);
                     //set habilidade pokemon
                     System.out.println("Digite a habilidade do pokemon");
                     Scanner habilidadePok = new Scanner(System.in);
-                    auxString = habilidadePok.next();
+                    auxString = habilidadePok.nextLine();
                     pokk.setHabilidade(auxString);
                     //set fraqueza pokemon
                     System.out.println("Digite a fraqueza do pokemon");
                     Scanner fraquezaPok = new Scanner(System.in);
-                    auxString = fraquezaPok.next();
+                    auxString = fraquezaPok.nextLine();
                     pokk.setFraqueza(auxString);
                     //set descrição pokemon
                     System.out.println("Digite descricao do pokemon");
                     Scanner descricaoPok = new Scanner(System.in);
-                    auxString = descricaoPok.next();
+                    auxString = descricaoPok.nextLine();
                     pokk.setDescricao(auxString);
                     //set altura pokemon
                     System.out.println("Digite a altura do pokemon");
                     Scanner alturaPok = new Scanner(System.in);
-                    auxNum = alturaPok.nextInt();
+                    auxNum = erro(alturaPok.next());
                     pokk.setAltura(auxNum);
                     //set peso pokemon
                     System.out.println("Digite o peso do pokemon");
                     Scanner pesoPok = new Scanner(System.in);
-                    auxNum = pesoPok.nextInt();
+                    auxNum = erro(pesoPok.next());
                     pokk.setPeso(auxNum);
                     //set idNum pokemon
-                    pokk.setNumId();
+                    //pokk.setNumId();
                     //set evolucao pokemon
                     System.out.println("O pokemon é uma evolução? Sim(1) ou Não(0)");
                     Scanner evolucaoPok = new Scanner(System.in);
-                    auxNum = evolucaoPok.nextInt();
+                    auxNum = erro(evolucaoPok.next());
                     pokk.setEvolucao(auxNum);
                     //set numIdEvolução pokemon
                     if(pokk.getEvolucao() == 1){
-                        System.out.println("Digite id(identificador) do pokemon 'pai'");
-                        Scanner idPok = new Scanner(System.in);
-                        auxNum = idPok.nextInt();
-                        pokk.setNumIdEvolucao(auxNum);
+                        if(pokk.getNumPokemon() != 0){
+                            System.out.println("Digite id(identificador) do pokemon 'pai'");
+                            Scanner idPok = new Scanner(System.in);
+                            auxNum = erro(idPok.next());
+                            pokk.setNumIdEvolucao(auxNum);
+                        }else{
+                            System.out.println("Não possui pokemons na pokedex!!");
+                        }
+                        
                     }
                     pokPrincipal.setObjetoPokemon(pokk);
                     
                     break;
                 case 2:
                     pokPrincipal.getObjetoPokemon();
+                    break;
+                case 3:
+                    if(pokPrincipal.getNumPokemon() != 0){
+                        int auxInd;
+                        System.out.println("Digite o id do pokemon");
+                        Scanner indDelete = new Scanner(System.in);
+                        auxInd = erro(indDelete.next());
+                        pokPrincipal.excluiPokemon(auxInd);
+                    }else{
+                        System.out.println("Não possui pokemons na pokedex!!");
+                    }
                     break;
                 default:
                     System.out.println("Comando não encontrado!");
