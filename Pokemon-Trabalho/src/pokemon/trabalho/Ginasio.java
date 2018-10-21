@@ -4,21 +4,153 @@
  * and open the template in the editor.
  */
 package pokemon.trabalho;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  *
- * @author pedro
+ * @author Juarez
  */
-public abstract class Ginasio extends Pokedex{
-    private String nomeGinasio, MestreGinasio;
-    private String [] pokemons = new String[10];
+public class Ginasio extends Pokedex {
+
+//private static ArrayList <Ginasio> arrayGinasio = new ArrayList();
+private String nomeGinasio, mestreGinasio;
+private ArrayList <Pokemon> arrayPokemons = new ArrayList();
+
     
-    /**
-     *exclui ginasio
-     */
-    @Override
-    public void excluiGinasio(){
+    //public static int contador =0;
+
+    /*public void setObjetoGinasio(Ginasio gin){
+        super.setNumGinasio();
+        Ginasio.arrayGinasio.add(gin);
         
+    }*/
+
+    /*public static ArrayList<Ginasio> getArrayGinasio() {
+        return arrayGinasio;
+    }*/
+    /**
+     *
+     * @return nome do mestre do ginasio
+     */
+    public String getMestreGinasio() {
+        return this.mestreGinasio;
+    }
+    /**
+     * 
+     * @return retorna array de pokemons do ginasio
+     */
+    public ArrayList getPokemons() {
+        return this.arrayPokemons;
+    }
+    /**
+     * 
+     * @return o nome do ginasio
+     */
+    public String getNomeGinasio() {
+        return this.nomeGinasio;
+    }
+
+    /*public static void setArrayGinasio(ArrayList<Ginasio> arrayGinasio) {
+        Ginasio.arrayGinasio = arrayGinasio;
+    }*/
+
+    public void setMestreGinasio(String mestreGinasio) {
+        this.mestreGinasio = mestreGinasio;
+    }
+
+    public void setNomeGinasio(String nomeGinasio) {
+        this.nomeGinasio = nomeGinasio;
+    }
+
+    public void setPokemons(Pokemon pokemons) {
+        arrayPokemons.add(pokemons);
     }
     
+    /*public static void contar(){
+        contador++;
+    }*/
+    
+    
+    
+    
+       //
+     //  menu principal
+	public void menu() { // menu principal
+            Scanner leituraOpcao= new Scanner(System.in); 
+            int opcao = 0;
+		do {
+			System.out.println("Deseja cadastrar um GinÃ¡sio?");
+			System.out.println("\n                -------------------------");
+			System.out.println("                  |     0 - NÃ£o          |");
+			System.out.println("                  |     1 - Sim           |");
+			System.out.println("                  -----------------------\n");
+			opcao = leituraOpcao.nextInt();
+			System.out.print("\n");
+			switch (opcao) {
+			case 0:
+				System.out.println("Finalizando...");
+                                break;
+			case 1:
+			String auxString;
+                        int auxInt = 0;
+                        Ginasio ginAux = new Ginasio();
+			//setando nome GinÃ¡sio
+                        Scanner nomeGin = new Scanner(System.in);
+			System.out.println("Digite o nome do GinÃ¡sio: ");
+			auxString = nomeGin.nextLine();
+                        ginAux.setNomeGinasio(auxString);
+                        //--
+			//arrayGinasio.get(contador).setNomeGinasio(auxString);
+			//setando nome Mestre
+                        Scanner nomeMestre = new Scanner(System.in);
+			System.out.println("Digite o nome do Mestre GinÃ¡sio: ");
+			auxString = nomeMestre.nextLine();
+                        ginAux.setMestreGinasio(auxString);
+                        //--
+                        //arrayGinasio.get(contador).setMestreGinasio(auxString);
+                        Scanner adcPokemon = new Scanner(System.in);
+                        System.out.println("Digite 1 - p/ adicionar pokemon.\n"
+                                + "Digite 0 - p/ nao adicionar pokemon. ");
+                        auxInt = adcPokemon.nextInt();
+			//setandoPokemons
+                        if(auxInt == 1){
+                            Scanner idPokemon = new Scanner(System.in);
+                            System.out.println("Digite o id do pokemon");
+                            System.out.println("Digite -1 p/ sair!");
+                            auxInt = idPokemon.nextInt();
+                            int sair = 0;
+                            
+                            while(sair != -1){
+                                if(auxInt <= ginAux.getNumPokemon()){
+                                    ginAux.setPokemons(ginAux.getObjetoPokemon(auxInt));
+                                    System.out.println("Digite outro id!\n"
+                                            + "ou digite -1 p/ sair");
+                                    
+                                    auxInt = idPokemon.nextInt();
+                                    if(auxInt == -1){
+                                        sair = auxInt;
+                                    }
+                                }else{
+                                    System.out.println("Digite um id valido!\n"
+                                            + "ou digite -1 p/ sair");
+                                    auxInt = idPokemon.nextInt();
+                                    if(auxInt == -1){
+                                        sair = auxInt;
+                                    }
+                                }
+                            }
+                        }
+                        //setandoGinasio
+                        ginAux.setObjetoGinasio(ginAux);
+                        break;
+			default:
+				System.out.println("OpÃ§Ã£o InvÃ¡lida!");
+				//tratamento do erro (chamar/executar).
+				break;
+			}
+		} while (opcao != 0);
+                
+            }
 }
