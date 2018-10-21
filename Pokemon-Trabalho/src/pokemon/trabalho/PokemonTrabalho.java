@@ -21,7 +21,7 @@ public class PokemonTrabalho {
             
             
         }catch(NumberFormatException e){
-           System.out.println("Comando inválido");;
+           System.out.println("Comando inválido");
            Scanner teste = new Scanner(System.in); 
            valorInt = erro(teste.next());
         }
@@ -43,9 +43,9 @@ public class PokemonTrabalho {
 			System.out.println("                  |   1 - Adicionar pokemon   |");
 			System.out.println("                  |   2 - Listar BD pokemons  |");
 			System.out.println("                  |   3 - Deletar pokemon     |");
-			System.out.println("                  |   4 - *                   |");
-			System.out.println("                  |   5 - *                   |");
-			System.out.println("                  |   6 - *                   |");
+			System.out.println("                  |   4 - Adicionar Ginasio   |");
+			System.out.println("                  |   5 - Listar BD ginasio   |");
+			System.out.println("                  |   6 - Deletar Ginasio     |");
 			System.out.println("                  |   0 - Sair                |");
 			System.out.println("                  =============================\n");
 			//System.out.print("\n");
@@ -121,7 +121,7 @@ public class PokemonTrabalho {
                     
                     break;
                 case 2:
-                    pokPrincipal.getObjetoPokemon();
+                    pokPrincipal.getObjetoPokemonLista();
                     break;
                 case 3:
                     if(pokPrincipal.getNumPokemon() != 0){
@@ -132,6 +132,25 @@ public class PokemonTrabalho {
                         pokPrincipal.excluiPokemon(auxInd);
                     }else{
                         System.out.println("Não possui pokemons na pokedex!!");
+                    }
+                    break;
+                case 4:
+                    Ginasio gin = new Ginasio();
+                    gin.menu();
+                    break;
+                case 5:
+                    Ginasio gin1 = new Ginasio();
+                    gin1.getObjetoGinasioLista();
+                    break;
+                case 6:
+                    Ginasio gin2 = new Ginasio();
+                    if(gin2.getNumGinasio() != 0){
+                        int intAux = 0;
+                        System.out.println("Digite o id do ginasio!");
+                        Scanner idGinasio = new Scanner(System.in);
+                        intAux = erro(idGinasio.next());
+                        gin2.excluiGinasio(intAux);
+                        
                     }
                     break;
                 default:
