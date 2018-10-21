@@ -31,7 +31,7 @@ public class Aula12 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        System.out.println("\n\n### SISCOM - Sistema Comercial de Controle de Compras e Vendas ###");
+        /*System.out.println("\n\n### SISCOM - Sistema Comercial de Controle de Compras e Vendas ###");
 			System.out.println("\n                  =========================");
 			System.out.println("                  |     1 - Venda         |");
 			System.out.println("                  |     2 - Vendedor      |");
@@ -44,7 +44,7 @@ public class Aula12 {
 			//opcao = Console.readInt("Opção -> ");
 			System.out.print("\n");
         
-        
+        */
         ArrayList<ObjetoTeste> remover = new ArrayList();
         ObjetoTeste obj1 = new ObjetoTeste();
         ObjetoTeste obj2 = new ObjetoTeste();
