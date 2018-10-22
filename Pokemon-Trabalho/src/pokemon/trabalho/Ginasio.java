@@ -75,8 +75,9 @@ private ArrayList <Pokemon> arrayPokemons = new ArrayList();
     
     
     
-       //
-     //  menu principal
+       /**
+        * função menu para adicionar ginasio
+        */
 	public void menu() { // menu principal
             Scanner leituraOpcao= new Scanner(System.in); 
             int opcao = 0;
