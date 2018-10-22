@@ -145,7 +145,7 @@ public class Pokedex extends Jogador {
         Pokedex.numPokemons--;
         }catch(Exception e){
                 if(numId+1 > arrayPokemon.size() || numId < 0){
-                    System.out.println("Pokemon não encontrado!");
+                    System.out.println("Pokemon não encontrado!"); 
                 }
                 }
     }
