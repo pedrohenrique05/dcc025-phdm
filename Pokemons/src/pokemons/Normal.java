@@ -9,24 +9,40 @@ package pokemons;
  *
  * @author Juarez
  */
-public class Normal {
+public class Normal extends Informacoes implements InfoPok {
     private String vantagem;
-    private String fraquesa;
-
-    public void setFraquesa(String fraquesa) {
-        this.fraquesa = "Nenhum pokemon listado na Pokedex";
+    private String fraqueza;
+    /**
+     * seta a fraqeuza do pokemon
+     * @param fraqueza 
+     */
+    @Override
+    public void setFraqueza(String fraqueza) {
+        this.fraqueza = fraqueza;
     }
-
+    /**
+     * 
+     * @return A vantagem do pokemon
+     */
+    @Override
     public String getVantagem() {
-        return vantagem;
+        return this.vantagem;
     }
-
+    /**
+     * seta a vantagem do pokemon
+     * @param vantagem 
+     */
+    @Override
     public void setVantagem(String vantagem) {
-        this.vantagem = "Nenhum pokemon listado na Pokedex1";
+        this.vantagem = vantagem;
     }
-
-    public String getFraquesa() {
-        return fraquesa;
+    /**
+     * 
+     * @return A fraqueza do pokemon
+     */
+    @Override
+    public String getFraqueza() {
+        return this.fraqueza;
     }
     
     

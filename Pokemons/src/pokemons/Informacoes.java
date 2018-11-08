@@ -9,7 +9,7 @@ package pokemons;
  *
  * @author Juarez
  */
-public class Informações {
+public class Informacoes {
     private String nome, sexo, habilidade, tipo, descricao;
     private int altura, peso, idade, numIdEvolucao = -1, evolucao = 0;
 
@@ -93,13 +93,13 @@ public class Informações {
         this.evolucao = evolucao;
     }
 
-    public Informações(String nome, String sexo, int idade) {
+    public Informacoes(String nome, String sexo, int idade) {
         this.nome = nome;
         this.sexo = sexo;
         this.idade = idade;
     }
 
-    public Informações(String nome, String sexo, String habilidade, String tipo, String descricao, int altura, int peso, int idade) {
+    public Informacoes(String nome, String sexo, String habilidade, String tipo, String descricao, int altura, int peso, int idade) {
         this.nome = nome;
         this.sexo = sexo;
         this.habilidade = habilidade;
@@ -110,7 +110,7 @@ public class Informações {
         this.idade = idade;
     }
 
-    public Informações() {
+    public Informacoes() {
     }
     
     
