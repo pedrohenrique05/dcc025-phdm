@@ -12,6 +12,13 @@ package pokemons;
 public class Normal extends Informacoes implements InfoPok {
     private String vantagem;
     private String fraqueza;
+    private String tipo;
+    /**
+     * Construtor da classe.
+     */
+    public Normal(){
+        
+    }
     /**
      * seta a fraqeuza do pokemon
      * @param fraqueza 
@@ -44,7 +51,21 @@ public class Normal extends Informacoes implements InfoPok {
     public String getFraqueza() {
         return this.fraqueza;
     }
-    
+    /**
+     * Seta o tipo do pokemon
+     */
+    @Override
+    public void setTipo(){
+        this.tipo = "Normal";
+    }
+    /**
+     * 
+     * @return O tipo do pokemon
+     */
+    @Override
+    public String getTipo(){
+        return this.tipo;
+    }
     
    
 }

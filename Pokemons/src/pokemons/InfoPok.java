@@ -26,4 +26,13 @@ public interface InfoPok {
      * @return As vantagens do pokemon
      */
     public String getVantagem();
+    /**
+     * Seta o tipo do pokemon
+     */
+    public void setTipo();
+    /**
+     * 
+     * @return O tipo do pokemon
+     */
+    public String getTipo(); 
 }

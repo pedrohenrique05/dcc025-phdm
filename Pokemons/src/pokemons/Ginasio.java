@@ -12,7 +12,7 @@ public class Ginasio extends Pokedex {
 
 //private static ArrayList <Ginasio> arrayGinasio = new ArrayList();
 private String nomeGinasio, mestreGinasio;
-private ArrayList <Pokemon> arrayPokemons = new ArrayList();
+private ArrayList <Informacoes> arrayPokemons = new ArrayList();
 
     
     //public static int contador =0;
@@ -60,7 +60,7 @@ private ArrayList <Pokemon> arrayPokemons = new ArrayList();
         this.nomeGinasio = nomeGinasio;
     }
 
-    public void setPokemons(Pokemon pokemons) {
+    public void setPokemons(Informacoes pokemons) {
         arrayPokemons.add(pokemons);
     }
     

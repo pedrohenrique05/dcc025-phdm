@@ -12,6 +12,13 @@ package pokemons;
 public class Agua extends Informacoes implements InfoPok{
     private String vantagem;
     private String fraqueza;
+    private String tipo;
+    /**
+     * Construtor da classe.
+     */
+    public Agua(){
+        
+    }
     /**
      * Set a fraqueza do pokemon
      * @param fraqueza 
@@ -43,6 +50,21 @@ public class Agua extends Informacoes implements InfoPok{
     @Override
     public String getFraqueza() {
         return this.fraqueza;
+    }
+    /**
+     * Seta o tipo do pokemon
+     */
+    @Override
+    public void setTipo(){
+        this.tipo = "Agua";
+    }
+    /**
+     * 
+     * @return O tipo do pokemon
+     */
+    @Override
+    public String getTipo(){
+        return this.tipo;
     }
     
     

@@ -12,6 +12,13 @@ package pokemons;
 public class Fogo extends Informacoes implements InfoPok{
     private String vantagem;
     private String fraqueza;
+    private String tipo;
+    /**
+     * Construtor da classe.
+     */
+    public Fogo(){
+        
+    }
     /**
      * seta a fraqueza do pokemon
      * @param fraqueza 
@@ -44,7 +51,21 @@ public class Fogo extends Informacoes implements InfoPok{
     public String getFraqueza() {
         return this.fraqueza;
     }
-    
+    /**
+     * Seta o tipo do pokemon
+     */
+    @Override
+    public void setTipo(){
+        this.tipo = "Fogo";
+    }
+    /**
+     * 
+     * @return O tipo do pokemon
+     */
+    @Override
+    public String getTipo(){
+        return this.tipo;
+    }
     
    
 }

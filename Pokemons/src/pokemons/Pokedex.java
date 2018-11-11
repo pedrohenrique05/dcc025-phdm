@@ -11,15 +11,17 @@ import java.util.Scanner;
  *
  * @author pedro
  */
-public class Pokedex extends Jogador {
+//antes pokedex estava estends de Jogador
+//agora não mais.
+public class Pokedex /*extends Jogador*/ {
     private static  int numPokemons = 0;
     private static  int numGinasio = 0;
     
     //Pokemon pok = new Pokemon();
     
     //pesquisar List em vez de arrayList
-    private static ArrayList <Pokemon> arrayPokemon = new ArrayList();
-    private static ArrayList <Ginasio> arrayGinasio = new ArrayList();
+    private static final ArrayList <Informacoes> arrayPokemon = new ArrayList();
+    private static final ArrayList <Ginasio> arrayGinasio = new ArrayList();
 
     /**
      * Adicionando o objeto ginasio no ArrayList e somando a qtd de ginasio
@@ -34,7 +36,7 @@ public class Pokedex extends Jogador {
      * 'Pokemon'
      * @param pokk
      */
-    public void setObjetoPokemon(Pokemon pokk){
+    public void setObjetoPokemon(Informacoes pokk){
         Pokedex.numPokemons++;
         Pokedex.arrayPokemon.add(pokk);
         
@@ -44,7 +46,7 @@ public class Pokedex extends Jogador {
      * @param ind indece do objeto no array Pokemon
      * @return o objeto referente ao ind passado por parametro
      */
-    public Pokemon getObjetoPokemon(int ind){
+    public Informacoes getObjetoPokemon(int ind){
      return Pokedex.arrayPokemon.get(ind);
     } 
 
@@ -60,14 +62,16 @@ public class Pokedex extends Jogador {
             for(int aux = 0 ; aux< Pokedex.arrayPokemon.size(); aux++){
                 //Pokemon auxPokk = this.arrayPokemon.get(aux);
                 //System.out.println("Tamanho do arrayList: "+Pokedex.arrayPokemon.size()+"Posição: "+aux);
-                pokemon = "| Nome do pokemon: " +Pokedex.arrayPokemon.get(aux).getNomePokemon()+ 
-                        "\n| Sexo: "+Pokedex.arrayPokemon.get(aux).getSexoPokemon()+
+                pokemon = "| Tipo: "+Pokedex.arrayPokemon.get(aux).getTipo()+
+                        "| Nome do pokemon: " +Pokedex.arrayPokemon.get(aux).getNome()+ 
+                        "\n| Sexo: "+Pokedex.arrayPokemon.get(aux).getSexo()+
                         "\n| Habilidade: "+Pokedex.arrayPokemon.get(aux).getHabilidade()+"\n| Fraqueza: "+
-                        Pokedex.arrayPokemon.get(aux).getFraqueza()+"\n| Descrição: "+
-                        Pokedex.arrayPokemon.get(aux).getDescricao()+
-                        ".\n| Altura: "+Pokedex.arrayPokemon.get(aux).getAltura()+"\n| Peso: "+
-                        Pokedex.arrayPokemon.get(aux).getAltura()+
-                        "\n| Seu id: "+/*Pokedex.arrayPokemon.get(aux).getNumIdPokemon()+*/aux+"\n| Id do seu pokemon de origem: "+
+                        Pokedex.arrayPokemon.get(aux).getFraqueza()+"\n| Vantagem: "
+                        +Pokedex.arrayPokemon.get(aux).getVantagem+"\n| Descrição: "
+                        +Pokedex.arrayPokemon.get(aux).getDescricao()+"\n| Altura: "
+                        +Pokedex.arrayPokemon.get(aux).getAltura()+"\n| Peso: "+
+                        Pokedex.arrayPokemon.get(aux).getAltura()+"\n| Seu id: "+
+                        aux+"\n| Id do seu pokemon de origem: "+
                         Pokedex.arrayPokemon.get(aux).getNumIdEvolucao();
                 System.out.println(pokemon+"\n ---------- ");
 

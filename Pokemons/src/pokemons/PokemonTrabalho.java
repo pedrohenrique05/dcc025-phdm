@@ -5,8 +5,13 @@
  */
 package pokemons;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,11 +32,25 @@ public class PokemonTrabalho {
         }
         return valorInt;
     }
+    public static void gravarDados(String dado){
+        File dados = new File("InformacoesPok.txt");
+        try {
+            FileWriter dadosPok = new FileWriter(dados);
+            dadosPok.write(dado+"\n");
+            dadosPok.flush();
+        } catch (IOException ex) {
+            System.out.println("Erro ao salvar arquivo!");
+        }
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        MenuBDP menu = new MenuBDP();
+        menu.menuInicio();
+        //Inicio do menu antigo
+        /*
         Jogador jg = new Jogador();
         Pokemon pokPrincipal = new Pokemon();
         int menu;
@@ -169,8 +188,8 @@ public class PokemonTrabalho {
             pokk.setObjetoPokemon(pokk);
             pokk.getObjetoPokemon();
             menu++;*/
-        }while(menu != 0);
-        
+        //}while(menu != 0);
+        //fim do menu antigo
 }
 
 }
