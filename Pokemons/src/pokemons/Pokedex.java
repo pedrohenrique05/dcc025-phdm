@@ -6,6 +6,7 @@
 package pokemons;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 /**
  *
@@ -28,7 +29,7 @@ public class Pokedex /*extends Jogador*/ {
      * @param gin 
      */
     public void setObjetoGinasio(Ginasio gin){
-        Pokedex.numGinasio++;
+        //Pokedex.numGinasio++;
         Pokedex.arrayGinasio.add(gin);
     }
     /**
@@ -37,7 +38,7 @@ public class Pokedex /*extends Jogador*/ {
      * @param pokk
      */
     public void setObjetoPokemon(Informacoes pokk){
-        Pokedex.numPokemons++;
+        //Pokedex.numPokemons++;
         Pokedex.arrayPokemon.add(pokk);
         
     }
@@ -62,12 +63,12 @@ public class Pokedex /*extends Jogador*/ {
             for(int aux = 0 ; aux< Pokedex.arrayPokemon.size(); aux++){
                 //Pokemon auxPokk = this.arrayPokemon.get(aux);
                 //System.out.println("Tamanho do arrayList: "+Pokedex.arrayPokemon.size()+"Posição: "+aux);
-                pokemon = "| Tipo: "+Pokedex.arrayPokemon.get(aux).getTipo()+
-                        "| Nome do pokemon: " +Pokedex.arrayPokemon.get(aux).getNome()+ 
+                pokemon = "| Tipo: "+((InfoPok)Pokedex.arrayPokemon.get(aux)).getTipo()+
+                        "\n| Nome do pokemon: " +Pokedex.arrayPokemon.get(aux).getNome()+ 
                         "\n| Sexo: "+Pokedex.arrayPokemon.get(aux).getSexo()+
                         "\n| Habilidade: "+Pokedex.arrayPokemon.get(aux).getHabilidade()+"\n| Fraqueza: "+
-                        Pokedex.arrayPokemon.get(aux).getFraqueza()+"\n| Vantagem: "
-                        +Pokedex.arrayPokemon.get(aux).getVantagem+"\n| Descrição: "
+                        ((InfoPok)Pokedex.arrayPokemon.get(aux)).getFraqueza()+"\n| Vantagem: "
+                        +((InfoPok)Pokedex.arrayPokemon.get(aux)).getVantagem()+"\n| Descrição: "
                         +Pokedex.arrayPokemon.get(aux).getDescricao()+"\n| Altura: "
                         +Pokedex.arrayPokemon.get(aux).getAltura()+"\n| Peso: "+
                         Pokedex.arrayPokemon.get(aux).getAltura()+"\n| Seu id: "+
@@ -97,10 +98,10 @@ public class Pokedex /*extends Jogador*/ {
                 ginasio = " | Nome do Ginasio: "+Pokedex.arrayGinasio.get(aux).getNomeGinasio()+"\n | "
                         + "Nome do mestre de ginasio: "+Pokedex.arrayGinasio.get(aux).getMestreGinasio();
                 System.out.println(ginasio);
-                ArrayList <Pokemon> auxArray = new ArrayList();
+                ArrayList <Informacoes> auxArray = new ArrayList();
                 auxArray = Pokedex.arrayGinasio.get(aux).getPokemons();
-                for(int aux1 = 0 ; aux1 < Pokedex.arrayGinasio.get(aux).getPokemons().size() ;aux1++){
-                    System.out.println(" | Nome do Pokemon: "+auxArray.get(aux1).getNomePokemon());
+                for(int aux1 = 0 ; aux1 < auxArray.size()/*Pokedex.arrayGinasio.get(aux).getPokemons().size()*/ ;aux1++){
+                    System.out.println(" | Nome do Pokemon: "+auxArray.get(aux1).getNome());
                 }
                 System.out.println("\n ----------");
             }
@@ -127,7 +128,8 @@ public class Pokedex /*extends Jogador*/ {
      * @return o numero de pokemons que possui na pokedex.
      */
     public int getNumPokemon(){
-        return Pokedex.numPokemons;
+        return arrayPokemon.size();
+        //return Pokedex.numPokemons;
     }
     
     /**
@@ -135,7 +137,8 @@ public class Pokedex /*extends Jogador*/ {
      * @return o numero de ginasio que possui na pokedex.
      */
     public int getNumGinasio(){
-        return Pokedex.numGinasio;
+        return arrayGinasio.size();
+        //return Pokedex.numGinasio;
     }
     /**
      * atualiza o numero de pokemon
@@ -146,7 +149,7 @@ public class Pokedex /*extends Jogador*/ {
         try{
         arrayPokemon.remove(numId);
         System.out.println("Pokemon deletado com sucesso!");
-        Pokedex.numPokemons--;
+        //Pokedex.numPokemons--;
         }catch(Exception e){
                 if(numId+1 > arrayPokemon.size() || numId < 0){
                     System.out.println("Pokemon não encontrado!"); 
@@ -163,7 +166,7 @@ public class Pokedex /*extends Jogador*/ {
                     System.out.println("Ginasio não encontrado!");
         }else{
             arrayGinasio.remove(ind);
-            Pokedex.numGinasio--;
+            //Pokedex.numGinasio--;
             System.out.println("Ginasio deletado com sucesso!");
         }
         

@@ -141,7 +141,7 @@ public class Informacoes {
         this.evolucao = evolucao;
     }
 
-    public Informacoes(String nome, String sexo) {
+    /*public Informacoes(String nome, String sexo) {
         this.nome = nome;
         this.sexo = sexo;
     }
@@ -153,5 +153,5 @@ public class Informacoes {
         this.descricao = descricao;
         this.altura = altura;
         this.peso = peso;
-    }
+    }*/
 }

@@ -82,6 +82,8 @@ public class MenuBDP {
                     switch(tipoPok){
                         case 1:
                             Agua ag = new Agua();
+                            //setando o tipo
+                            ag.setTipo();
                             //Setando o nome do pokemon
                             System.out.println("Digite o nome do Pokemon!");
                             Scanner auxStr = new Scanner(System.in);
@@ -136,6 +138,8 @@ public class MenuBDP {
                             break;
                         case 2:
                             Fogo fg = new Fogo();
+                            //setando o tipo
+                            fg.setTipo();
                             //Setando o nome do pokemon
                             System.out.println("Digite o nome do Pokemon!");
                             Scanner auxStrF = new Scanner(System.in);
@@ -190,6 +194,8 @@ public class MenuBDP {
                             break;
                         case 3:
                             Normal nmr = new Normal();
+                            //setando o tipo
+                            nmr.setTipo();
                             //Setando o nome do pokemon
                             System.out.println("Digite o nome do Pokemon!");
                             Scanner auxStrN = new Scanner(System.in);
@@ -244,6 +250,8 @@ public class MenuBDP {
                             break;
                         case 4:
                             Terra tr = new Terra();
+                            //setando o tipo
+                            tr.setTipo();
                             //Setando o nome do pokemon
                             System.out.println("Digite o nome do Pokemon!");
                             Scanner auxStrT = new Scanner(System.in);
@@ -298,6 +306,8 @@ public class MenuBDP {
                             break;
                         case 5:
                             Voador vd = new Voador();
+                            //setando o tipo
+                            vd.setTipo();
                             //Setando o nome do pokemon
                             System.out.println("Digite o nome do Pokemon!");
                             Scanner auxStrV = new Scanner(System.in);
@@ -373,17 +383,17 @@ public class MenuBDP {
                     gin.menu();
                     break;
                 case 5:
-                    Ginasio gin1 = new Ginasio();
-                    gin1.getObjetoGinasioLista();
+                    //Ginasio gin1 = new Ginasio();
+                    pokedex.getObjetoGinasioLista();
                     break;
                 case 6:
                     Ginasio gin2 = new Ginasio();
-                    if(gin2.getNumGinasio() != 0){
-                        int intAux = 0;
+                    if(pokedex.getNumGinasio() != 0){
+                        int intAux;
                         System.out.println("Digite o id do ginasio!");
                         Scanner idGinasio = new Scanner(System.in);
                         intAux = erro(idGinasio.next());
-                        gin2.excluiGinasio(intAux);
+                        pokedex.excluiGinasio(intAux);
                         
                     }
                     break;
