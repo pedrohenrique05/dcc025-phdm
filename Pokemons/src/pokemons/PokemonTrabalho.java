@@ -32,7 +32,7 @@ public class PokemonTrabalho {
         }
         return valorInt;
     }
-    public static void gravarDados(String dado){
+    /*public static void gravarDados(String dado){
         File dados = new File("InformacoesPok.txt");
         try {
             FileWriter dadosPok = new FileWriter(dados);
@@ -41,7 +41,7 @@ public class PokemonTrabalho {
         } catch (IOException ex) {
             System.out.println("Erro ao salvar arquivo!");
         }
-    }
+    }*/
     /**
      * @param args the command line arguments
      */

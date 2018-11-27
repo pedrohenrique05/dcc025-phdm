@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package pokemons;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 /**
  *
@@ -38,14 +42,176 @@ public class MenuBDP {
         return valorInt;
     }
     /**
+     * Salva os objetos pokedex instanciados em um arquivo no disco
+     * @param obj 
+     */
+    public void salvarObjeto(Pokedex obj){
+        try{
+            FileOutputStream arquivoGrav = new FileOutputStream("gravObj.dat");
+            ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
+            objGravar.writeObject(obj);
+            objGravar.flush();
+            objGravar.close();
+            System.out.println("Objeto gravado com sucesso!");
+        }catch(Exception e) {
+            System.out.println("Erro ao salvar arquivo");
+        }
+    }
+    /**
+     * Retorna o objeto pokedex que está salvo no disco
+     * @return 
+     */
+    public Pokedex getObjecto(){
+        
+        try{
+            
+            //Carrega o arquivo
+ 
+            FileInputStream arquivoLeitura = new FileInputStream("gravObj.dat");
+            ObjectInputStream objLeitura = new ObjectInputStream(arquivoLeitura);
+            Pokedex pok = (Pokedex)objLeitura.readObject();
+            System.out.println("Leitura finalizada com sucesso");
+            objLeitura.close();
+            arquivoLeitura.close();
+            return pok;
+            
+        }catch(Exception e) {
+ 
+            System.out.println("Erro ao ler arquivo");
+            return null;
+        }
+    }
+    
+    
+    /**
+     * Salva os objetos jogador instanciados em um arquivo no disco
+     * @param obj 
+     */
+    public void salvarObjetoJg(Jogador obj){
+        try{
+            FileOutputStream arquivoGrav = new FileOutputStream("gravObjJg.dat");
+            ObjectOutputStream objGravar = new ObjectOutputStream(arquivoGrav);
+            objGravar.writeObject(obj);
+            objGravar.flush();
+            objGravar.close();
+            System.out.println("Objeto gravado com sucesso!");
+        }catch(Exception e) {
+            System.out.println("Erro ao salvar arquivo");
+        }
+    }
+    /**
+     * Retorna o objeto jogador que está salvo no disco
+     * @return 
+     */
+    public Jogador getObjectoJg(){
+        
+        try{
+            
+            //Carrega o arquivo
+ 
+            FileInputStream arquivoLeitura = new FileInputStream("gravObjJg.dat");
+            ObjectInputStream objLeitura = new ObjectInputStream(arquivoLeitura);
+            Jogador jg = (Jogador)objLeitura.readObject();
+            System.out.println("Leitura finalizada com sucesso");
+            objLeitura.close();
+            arquivoLeitura.close();
+            return jg;
+            
+        }catch(Exception e) {
+ 
+            System.out.println("Erro ao ler arquivo");
+            return null;
+        }
+    }
+    /**
      * Menu do banco de dados de pokemons
      */
     public void menuInicio(){
-        Pokedex pokedex = new Pokedex();
+        Jogador jg = null;
+        Pokedex pokedex;
+        /**
+         * If else que tem como objetivo solicitar ao usuário informar se quer abrir um
+         * arquivo já existente ou inicializar um do zero.
+         */
+        int arq = 0;
+        System.out.println("(0) - Iniciar novo arquivo\n"
+                + "(1) - abrir arquivo salvo");
+        Scanner lerArq = new Scanner(System.in);
+        arq = erro(lerArq.next());
+        if(arq == 0){
+            jg = new Jogador();
+            System.out.println("Iniciando o Sistema!\nPara prosseguir, cadastre um jogador!");
+            String auxStr;
+            int auxInt;
+            Scanner str = new Scanner(System.in);
+            System.out.println("Digite o nome do jogador!");
+            auxStr = str.nextLine();
+            jg.setNomeJogador(auxStr);
+            System.out.println("Digite o sexo do jogador!");
+            auxStr = str.nextLine();
+            jg.setSexoJogador(auxStr);
+            System.out.println("Digite a insigna do jogador ou 'sair' p/ sair");
+            auxStr = str.nextLine();
+            for(int aux = 0 ; aux < 10 ; aux++){
+                if("sair".equals(auxStr)){
+                    aux = 10;
+                }else{
+                    System.out.println("Proxima insigna ou 'sair");
+                    jg.setInsignia(auxStr);
+                }
+            }
+            System.out.println("Digite a idade do jogador!");
+            Scanner inte = new Scanner(System.in);
+            auxInt = erro(inte.next());
+            jg.setIdade(auxInt);
+            System.out.println("Informe a quantidade de pokebolas que o jogador tem!");
+            auxInt = erro(inte.next());
+            jg.setPokebola(auxInt);
+            pokedex = new Pokedex();
+        }else{
+            pokedex = getObjecto();
+            jg = getObjectoJg();
+            if(pokedex == null){
+                pokedex = new Pokedex();
+            }
+            if(jg == null){
+                            jg = new Jogador();
+            System.out.println("Iniciando o Sistema!\nPara prosseguir, cadastre um jogador!");
+            String auxStr;
+            int auxInt;
+            Scanner str = new Scanner(System.in);
+            System.out.println("Digite o nome do jogador!");
+            auxStr = str.nextLine();
+            jg.setNomeJogador(auxStr);
+            System.out.println("Digite o sexo do jogador!");
+            auxStr = str.nextLine();
+            jg.setSexoJogador(auxStr);
+            System.out.println("Digite a insigna do jogador ou 'sair' p/ sair");
+            auxStr = str.nextLine();
+            for(int aux = 0 ; aux < 10 ; aux++){
+                if("sair".equals(auxStr)){
+                    aux = 10;
+                }else{
+                    System.out.println("Proxima insigna ou 'sair");
+                    jg.setInsignia(auxStr);
+                }
+            }
+            System.out.println("Digite a idade do jogador!");
+            Scanner inte = new Scanner(System.in);
+            auxInt = erro(inte.next());
+            jg.setIdade(auxInt);
+            System.out.println("Informe a quantidade de pokebolas que o jogador tem!");
+            auxInt = erro(inte.next());
+            jg.setPokebola(auxInt);
+            }
+        }
+        
+        
         int menu;
+        /**
+         * Inicio da estrutura de menu do sistema.
+         */
         do{
-            //System.out.println("0 - para sair ; 1 - para adicionar um novo pokemon"
-                    //+ " ; 2 - para listar BD da pokedex\n3 - para deletar pokemon");
                         System.out.println("\n### Sistema de informações de pokemons! - Pokedex ###");
 			System.out.println("                  =============================");
 			System.out.println("                  |   1 - Adicionar pokemon   |");
@@ -54,12 +220,13 @@ public class MenuBDP {
 			System.out.println("                  |   4 - Adicionar Ginasio   |");
 			System.out.println("                  |   5 - Listar BD Ginasio   |");
 			System.out.println("                  |   6 - Deletar Ginasio     |");
+                        System.out.println("                  |   7 - Imprime Jogador     |");
+                        System.out.println("                  |   8 - Salvar BD Pokemons  |");
 			System.out.println("                  |   0 - Sair                |");
 			System.out.println("                  =============================\n");
 			
             Scanner auxMenu = new Scanner(System.in);
             menu = erro(auxMenu.next());
-            //menu = auxMenu.nextInt();
             
             switch(menu){
                 case 0:
@@ -380,7 +547,58 @@ public class MenuBDP {
                     break;
                 case 4:
                     Ginasio gin = new Ginasio();
-                    gin.menu();
+                    String strGin;
+                    int auxInt;
+                    /**
+                     * setando nome Ginásio
+                    */
+                    System.out.println("Digite o nome do Ginásio: ");
+                    Scanner auxStrGin = new Scanner(System.in);
+                    strGin = auxStrGin.nextLine();
+                    gin.setNomeGinasio(strGin);
+                    /**
+                     * setando nome Mestre do ginasio
+                    */
+                    System.out.println("Digite o nome do Mestre Ginásio: ");
+                    strGin = auxStrGin.nextLine();
+                    gin.setMestreGinasio(strGin);
+                    /**
+                     * Setando o pokemon no ginasio
+                     */
+                    Scanner adcPokemon = new Scanner(System.in);
+                    System.out.println("Digite 1 - p/ adicionar pokemon.\n"
+                        + "Digite 0 - p/ nao adicionar pokemon. ");
+                    auxInt = adcPokemon.nextInt();
+                    /**
+                     * setandoPokemons
+                     */
+                    if(auxInt == 1){
+                        Scanner idPokemon = new Scanner(System.in);
+                        System.out.println("Digite o id do pokemon");
+                        System.out.println("Digite -1 p/ sair!");
+                        auxInt = idPokemon.nextInt();
+                        int sair = 0;
+                        while(sair != -1){
+                                if(pokedex.getNumPokemon() == 0){
+                                    System.out.println("Não existe pokemons registrados na pokedex!");
+                                    sair = -1;
+                                }else if(auxInt >= 0 && auxInt < pokedex.getNumPokemon()){
+                                    gin.setPokemons(pokedex.getObjetoPokemon(auxInt));
+                                    System.out.println("Digite um id  ou -1 p/ sair");
+                                    auxInt = erro(idPokemon.next());
+                                if(auxInt == -1){
+                                    sair = auxInt;
+                                }
+                                }else{
+                                    System.out.println("Digite um id válido ou -1 p/ sair");
+                                    auxInt = erro(idPokemon.next());
+                                    if(auxInt == -1){
+                                        sair = auxInt;
+                                    }
+                                }
+                            }
+                        }
+                    pokedex.setObjetoGinasio(gin);
                     break;
                 case 5:
                     //Ginasio gin1 = new Ginasio();
@@ -396,6 +614,13 @@ public class MenuBDP {
                         pokedex.excluiGinasio(intAux);
                         
                     }
+                    break;
+                case 7:
+                    jg.imprimeJogador();
+                    break;
+                case 8:
+                    salvarObjeto(pokedex);
+                    salvarObjetoJg(jg);
                     break;
                 default:
                     System.out.println("Comando não encontrado!");

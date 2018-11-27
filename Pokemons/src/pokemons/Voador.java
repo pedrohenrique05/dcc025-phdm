@@ -5,11 +5,13 @@
  */
 package pokemons;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Juarez
  */
-public class Voador extends Informacoes implements InfoPok{
+public class Voador extends Informacoes implements Serializable , InfoPok{
     private String vantagem;
     private String fraqueza;
     private String tipo;

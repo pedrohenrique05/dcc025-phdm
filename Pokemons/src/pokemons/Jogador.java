@@ -5,17 +5,42 @@
  */
 package pokemons;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 /**
  *
  * @author pedro
  */
-//estender de informações//sobrecrga de construtorres
-public class Jogador{
+
+public class Jogador implements Serializable{
 
 private String nomeJogador, sexoJogador;
 String [] insignia = new String[10];
 private int idade, pokebola = 0;
-private static int ind = 0;
+private int ind = 0;
+
+/**
+ * construtor da classe
+ */
+public Jogador(){
+    
+}
+/**
+ * Imprime os dados do jogador
+ */
+public void imprimeJogador(){
+    String info = "|Nome: "+this.getNomeJogador()+"\n"
+                + "|Sexo: "+this.getSexoJogador()+"\n"
+                + "|Idade: "+this.getIdade()+"\n"
+                + "|N° de pokebolas: "+this.getNumPokebolas();
+        String insigna = "|Insignas: ";
+        for(int aux1 = 0 ; aux1 < this.ind; aux1++){
+            insigna += getInsigniaJogador(aux1)+", ";
+        }
+        System.out.println("\n"+info+"\n"+insigna);
+}
+
 /**
  * metodo que seta o nome do jogador. não há retorno.
  * @param nomeJogador - nome do jogador.
@@ -35,8 +60,13 @@ public void setSexoJogador(String sexoJogador){
  * @param insignia insignia que o jogador tem.
  */
 public void setInsignia(String insignia){
-    this.insignia[ind] = insignia;
-    ind++;
+    if(this.ind < 10){
+        this.insignia[this.ind] = insignia;
+        this.ind++;
+    }else{
+        System.out.println("Não pode haver mais insignia");
+    }
+    
 }
 /**
  * metodo que seta a idade do jogador. não há retorno.

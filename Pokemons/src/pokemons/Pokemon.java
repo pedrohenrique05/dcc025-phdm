@@ -5,12 +5,14 @@
  */
 package pokemons;
 
+import java.io.Serializable;
+
 /**
  *
  * @author pedro
  */
 //estender de informações//sobrecrga de construtorres
-public class Pokemon extends Pokedex{
+public class Pokemon extends Pokedex implements Serializable{
     
     private String nomePokemon, sexoPokemon, habilidade, fraqueza, descricao;
     private int altura, peso, numIdEvolucao = -1, evolucao = 0/*, auxNumId = -1*/;

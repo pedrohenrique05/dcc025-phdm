@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package pokemons;
+import java.io.Serializable;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,35 +13,38 @@ import java.util.Scanner;
  *
  * @author pedro
  */
-//antes pokedex estava estends de Jogador
-//agora não mais.
-public class Pokedex /*extends Jogador*/ {
+
+public class Pokedex implements Serializable{
     private static  int numPokemons = 0;
     private static  int numGinasio = 0;
     
-    //Pokemon pok = new Pokemon();
+    private ArrayList <Informacoes> arrayPokemon = new ArrayList();
+    private ArrayList <Informacoes> arrayTeste = new ArrayList();
+    private ArrayList <Ginasio> arrayGinasio = new ArrayList();
     
-    //pesquisar List em vez de arrayList
-    private static final ArrayList <Informacoes> arrayPokemon = new ArrayList();
-    private static final ArrayList <Ginasio> arrayGinasio = new ArrayList();
-
+    /**
+     * Construtor da classe
+     */
+    public Pokedex(){
+        
+    }
     /**
      * Adicionando o objeto ginasio no ArrayList e somando a qtd de ginasio
      * @param gin 
      */
     public void setObjetoGinasio(Ginasio gin){
-        //Pokedex.numGinasio++;
-        Pokedex.arrayGinasio.add(gin);
+        System.out.println("Ginasio salvo!");
+        this.arrayGinasio.add(gin);
     }
+    
     /**
      * criando o metodo setPokemon, que usará os metodos set's da classe filha
      * 'Pokemon'
      * @param pokk
      */
     public void setObjetoPokemon(Informacoes pokk){
-        //Pokedex.numPokemons++;
-        Pokedex.arrayPokemon.add(pokk);
-        
+        System.out.println("Pokemon salvo!");
+        this.arrayPokemon.add(pokk);
     }
     /**
      * 
@@ -48,7 +52,7 @@ public class Pokedex /*extends Jogador*/ {
      * @return o objeto referente ao ind passado por parametro
      */
     public Informacoes getObjetoPokemon(int ind){
-     return Pokedex.arrayPokemon.get(ind);
+     return this.arrayPokemon.get(ind);
     } 
 
     /**
@@ -56,24 +60,22 @@ public class Pokedex /*extends Jogador*/ {
      */
     public void getObjetoPokemonLista(){
         String pokemon;
-        if(Pokedex.arrayPokemon.isEmpty()){
+        if(this.arrayPokemon.isEmpty()){
             System.out.println("Não há nenhum pokemon registrado na pokedex!");
         }else{
             
-            for(int aux = 0 ; aux< Pokedex.arrayPokemon.size(); aux++){
-                //Pokemon auxPokk = this.arrayPokemon.get(aux);
-                //System.out.println("Tamanho do arrayList: "+Pokedex.arrayPokemon.size()+"Posição: "+aux);
-                pokemon = "| Tipo: "+((InfoPok)Pokedex.arrayPokemon.get(aux)).getTipo()+
-                        "\n| Nome do pokemon: " +Pokedex.arrayPokemon.get(aux).getNome()+ 
-                        "\n| Sexo: "+Pokedex.arrayPokemon.get(aux).getSexo()+
-                        "\n| Habilidade: "+Pokedex.arrayPokemon.get(aux).getHabilidade()+"\n| Fraqueza: "+
-                        ((InfoPok)Pokedex.arrayPokemon.get(aux)).getFraqueza()+"\n| Vantagem: "
-                        +((InfoPok)Pokedex.arrayPokemon.get(aux)).getVantagem()+"\n| Descrição: "
-                        +Pokedex.arrayPokemon.get(aux).getDescricao()+"\n| Altura: "
-                        +Pokedex.arrayPokemon.get(aux).getAltura()+"\n| Peso: "+
-                        Pokedex.arrayPokemon.get(aux).getAltura()+"\n| Seu id: "+
+            for(int aux = 0 ; aux< this.arrayPokemon.size(); aux++){
+                pokemon = "| Tipo: "+((InfoPok)this.arrayPokemon.get(aux)).getTipo()+
+                        "\n| Nome do pokemon: " +this.arrayPokemon.get(aux).getNome()+ 
+                        "\n| Sexo: "+this.arrayPokemon.get(aux).getSexo()+
+                        "\n| Habilidade: "+this.arrayPokemon.get(aux).getHabilidade()+"\n| Fraqueza: "+
+                        ((InfoPok)this.arrayPokemon.get(aux)).getFraqueza()+"\n| Vantagem: "
+                        +((InfoPok)this.arrayPokemon.get(aux)).getVantagem()+"\n| Descrição: "
+                        +this.arrayPokemon.get(aux).getDescricao()+"\n| Altura: "
+                        +this.arrayPokemon.get(aux).getAltura()+"\n| Peso: "+
+                        this.arrayPokemon.get(aux).getAltura()+"\n| Seu id: "+
                         aux+"\n| Id do seu pokemon de origem: "+
-                        Pokedex.arrayPokemon.get(aux).getNumIdEvolucao();
+                        this.arrayPokemon.get(aux).getNumIdEvolucao();
                 System.out.println(pokemon+"\n ---------- ");
 
 
@@ -87,19 +89,16 @@ public class Pokedex /*extends Jogador*/ {
      */
     public void getObjetoGinasioLista(){
         String ginasio;
-        if(Pokedex.arrayGinasio.isEmpty()){
+        if(this.arrayGinasio.isEmpty()){
             System.out.println("Não há nenhum ginasio registrado na pokedex!");
         }else{
             
-            for(int aux = 0 ; aux< Pokedex.arrayGinasio.size(); aux++){
-                
-                //Pokemon auxPokk = this.arrayPokemon.get(aux);
-                //System.out.println("Tamanho do arrayList: "+Pokedex.arrayPokemon.size()+"Posição: "+aux);
-                ginasio = " | Nome do Ginasio: "+Pokedex.arrayGinasio.get(aux).getNomeGinasio()+"\n | "
-                        + "Nome do mestre de ginasio: "+Pokedex.arrayGinasio.get(aux).getMestreGinasio();
+            for(int aux = 0 ; aux< this.arrayGinasio.size(); aux++){
+                ginasio = " | Nome do Ginasio: "+this.arrayGinasio.get(aux).getNomeGinasio()+"\n | "
+                        + "Nome do mestre de ginasio: "+this.arrayGinasio.get(aux).getMestreGinasio();
                 System.out.println(ginasio);
                 ArrayList <Informacoes> auxArray = new ArrayList();
-                auxArray = Pokedex.arrayGinasio.get(aux).getPokemons();
+                auxArray = this.arrayGinasio.get(aux).getPokemons();
                 for(int aux1 = 0 ; aux1 < auxArray.size()/*Pokedex.arrayGinasio.get(aux).getPokemons().size()*/ ;aux1++){
                     System.out.println(" | Nome do Pokemon: "+auxArray.get(aux1).getNome());
                 }
@@ -115,20 +114,14 @@ public class Pokedex /*extends Jogador*/ {
      * @return o objeto referente ao ind passado por parametro
      */
     public Ginasio getObjetoGinasio(int ind){
-     return Pokedex.arrayGinasio.get(ind);
+     return this.arrayGinasio.get(ind);
     } 
-    /**
-     * adicionando o numero de ginasio que está na pokedex.
-     */
-    /*public void setNumGinasio(){
-        Pokedex.numGinasio++;
-    }*/
     /**
      * 
      * @return o numero de pokemons que possui na pokedex.
      */
     public int getNumPokemon(){
-        return arrayPokemon.size();
+        return this.arrayPokemon.size();
         //return Pokedex.numPokemons;
     }
     
@@ -147,11 +140,10 @@ public class Pokedex /*extends Jogador*/ {
      */
     public void excluiPokemon(int numId){
         try{
-        arrayPokemon.remove(numId);
+        this.arrayPokemon.remove(numId);
         System.out.println("Pokemon deletado com sucesso!");
-        //Pokedex.numPokemons--;
         }catch(Exception e){
-                if(numId+1 > arrayPokemon.size() || numId < 0){
+                if(numId+1 > this.arrayPokemon.size() || numId < 0){
                     System.out.println("Pokemon não encontrado!"); 
                 }
                 }
@@ -162,11 +154,10 @@ public class Pokedex /*extends Jogador*/ {
      */
   
     public void excluiGinasio(int ind){
-        if(ind+1 > arrayGinasio.size() || ind < 0){
+        if(ind+1 > this.arrayGinasio.size() || ind < 0){
                     System.out.println("Ginasio não encontrado!");
         }else{
-            arrayGinasio.remove(ind);
-            //Pokedex.numGinasio--;
+            this.arrayGinasio.remove(ind);
             System.out.println("Ginasio deletado com sucesso!");
         }
         

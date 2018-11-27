@@ -5,11 +5,13 @@
  */
 package pokemons;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Juarez
  */
-public class Informacoes {
+public class Informacoes implements Serializable{
     private String nome, sexo, habilidade, descricao;
     private int altura, peso, numIdEvolucao = -1, evolucao = 0;
     /**
